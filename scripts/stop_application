@@ -1,4 +1,10 @@
 #!/bin/bash
 
 set -e
-service tomcat9 stop
+
+# Attempt to stop Tomcat 9 service, but ignore errors if it's not running
+if service tomcat9 stop; then
+    echo "Tomcat 9 stopped successfully."
+else
+    echo "Tomcat 9 is not running or doesn't exist."
+fi
